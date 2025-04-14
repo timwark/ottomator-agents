@@ -11,6 +11,10 @@ load_dotenv()
 
 model = os.getenv('MODEL_CHOICE', 'gpt-4o-mini')
 
+# Set the OPENAI_API_KEY from local environment variables
+from agents import set_default_openai_key
+set_default_openai_key(os.getenv('OPENAI_API_KEY'))
+
 # --- Models for structured outputs ---
 
 class TravelPlan(BaseModel):

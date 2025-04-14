@@ -12,6 +12,10 @@ import os
 # Load environment variables
 load_dotenv()
 
+# Set the OPENAI_API_KEY from local environment variables
+from agents import set_default_openai_key
+set_default_openai_key(os.getenv('OPENAI_API_KEY'))
+
 # Comment these lines out if you don't want Logfire tracing
 logfire.configure(send_to_logfire='if-token-present')
 logfire.instrument_openai_agents()
